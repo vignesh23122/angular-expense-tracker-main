@@ -1,0 +1,113 @@
+<div class="signup-form-container p-2 border broder-dark rounded">
+    <h3>SignUp</h3>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" method="post">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" formControlName="username" id="username" class="form-control" (ngModelChange)="checkUsername($event)" placeholder="Username">
+          <small *ngIf="usernameIsAvailable" class="text-success">Username is available</small>
+          <small *ngIf="!usernameIsAvailable && username?.touched && username?.value.length>=5" class="text-danger">Username is not available !</small>
+          
+
+
+          <div *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="username?.errors?.['required']">
+          Username is required.
+        </div>
+        <div *ngIf="username?.errors?.['minlength']">
+          Username must be at least 5 characters long.
+        </div>
+        <div *ngIf="username?.errors?.['maxlength']">
+          Username must be less than 15 characters
+        </div>
+        </div>
+       
+       
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" formControlName="email" id="email" class="form-control" placeholder="Email">
+          
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="email?.errors?.['required']">
+          Email is required !
+        </div>
+        <div *ngIf="email?.errors?.['minlength']">
+          Email must be at least 5 characters long.
+        </div>
+        <div *ngIf="email?.errors?.['email']">
+          Must be a valid email !
+        </div>
+        </div>
+          
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" formControlName="password" id="password" class="form-control" placeholder="Password">
+          
+
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="password?.errors?.['required']">
+          Password is required.
+        </div>
+        <div *ngIf="password?.errors?.['minlength']">
+          Password must be at least 8 characters long.
+        </div>
+        </div>
+
+
+          </div>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" formControlName="firstName" id="firstName" class="form-control" placeholder="First Name">
+          
+
+        <div *ngIf="fname?.invalid && (fname?.dirty || fname?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="fname?.errors?.['required']">
+          FirstName is required !
+        </div>
+        <div *ngIf="fname?.errors?.['minlength']">
+          FirstName must be at least 2 characters long.
+        </div>
+        <div *ngIf="fname?.errors?.['maxlength']">
+          FirstName must be a less than 200 characters !
+        </div>
+        </div>
+          
+          
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" formControlName="lastName" id="lastName" class="form-control" placeholder="Last Name">
+          
+
+          <div *ngIf="lname?.invalid && (lname?.dirty || lname?.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="lname?.errors?.['required']">
+            LastName is required !
+          </div>
+          <div *ngIf="lname?.errors?.['minlength']">
+            LastName must be at least 2 characters long.
+          </div>
+          <div *ngIf="lname?.errors?.['maxlength']">
+            LastName must be a less than 200 characters !
+          </div>
+          </div>
+          
+          </div>
+          <div *ngIf="showAlert" [class]="'alert '+(alertIsSuccess)?'alert-success':'alert-danger'">
+            {{alertMessage}}
+          </div>
+          <button type="submit" class="btn btn-dark" >SignUp</button>
+          <hr>
+          Already have an account ? <a routerLink="/login">Login</a>
+    </form>
+</div>

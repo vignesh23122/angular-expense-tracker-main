@@ -1,0 +1,31 @@
+.view-balance-container{
+    margin-top: 10rem;
+    margin-inline: 35rem;
+    background: rgb(190, 237, 255);
+    padding: 2rem;
+    height:35rem;
+    width: 33rem;
+}
+
+#inner-container{
+    background-image: url('/assets/purse.png');
+    height:30rem;
+    width: 30rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .view-balance-container{
+        margin-top: 3rem;
+        margin-inline: 2rem;
+        background: rgb(190, 237, 255);
+        padding: 2rem;
+        height:35rem;
+        width: 22rem;
+    }
+    
+    #inner-container{
+        background-image: url('/assets/purse.png');
+        height:30rem;
+        width: 20rem;
+    }
+  }

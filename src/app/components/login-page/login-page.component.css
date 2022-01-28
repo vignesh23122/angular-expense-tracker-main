@@ -1,0 +1,13 @@
+.login-form-container{
+    margin-top: 10rem;
+    margin-inline: 35rem;
+    background: rgb(190, 237, 255);
+}
+
+@media only screen and (max-width: 600px) {
+    .login-form-container{
+        margin-top: 10rem;
+        margin-inline: 2rem;
+        background: rgb(190, 237, 255);
+    }
+  }

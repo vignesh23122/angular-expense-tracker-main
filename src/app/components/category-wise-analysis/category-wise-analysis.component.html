@@ -1,0 +1,13 @@
+<div class="category-expense-container border broder-dark">
+        <div class="d-flex justify-content-center"><h3>Category Wise Expenses</h3></div>
+      <div style="display: block">
+        <canvas baseChart
+          *ngIf="showChart"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [type]="barChartType"
+          >
+        </canvas>
+      </div>
+  </div>

@@ -1,0 +1,13 @@
+.category-expense-container{
+    padding: 3 rem;
+    margin-top: 5rem;
+    margin-inline: 25rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .category-expense-container{
+        padding: 2 rem;
+        margin-top: 5rem;
+        margin-inline: 2rem;
+    }
+  }

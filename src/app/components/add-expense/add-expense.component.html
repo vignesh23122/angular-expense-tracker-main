@@ -1,0 +1,68 @@
+<div class="add-expense-form border border-dark rounded">
+    <h3>Add Expense</h3>
+    <form [formGroup]="addExpenseForm" (ngSubmit)="onSubmit()" method="post">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" formControlName="title" id="title" class="form-control" placeholder="Title" >
+          <div *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="title?.errors?.['required']">
+          Title is required.
+        </div>
+        <div *ngIf="title?.errors?.['minlength']">
+          Title must be at least 2 characters long.
+        </div>
+        <div *ngIf="title?.errors?.['maxlength']">
+          Title must be less than 50 characters
+        </div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="note" class="form-label">Note</label>
+            <textarea formControlName="note" id="note" cols="30" rows="10"></textarea>
+        <div *ngIf="note?.invalid && (note?.dirty || note?.touched)"
+          class="alert alert-danger">
+        <div *ngIf="note?.errors?.['maxlength']">
+          Note must be less than 200 characters
+        </div>
+        </div>
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" formControlName="amount" id="amount" class="form-control" placeholder="Amount" >
+          
+            <div *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="amount?.errors?.['required']">
+          Amount is required.
+        </div>
+        <div *ngIf="amount?.errors?.['min']">
+          Amount must be greater than 0
+        </div>
+        </div>
+          
+          </div>
+         <div class="mb-3">
+           <label for="category" class="form-label">Category : </label>
+           <select class="form-control" formControlName="category" id="category">
+             <option *ngFor="let category of categories" [ngValue]="category" >{{category}}</option>
+           </select>
+
+           <div *ngIf="category?.invalid && (category?.dirty || category?.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="category?.errors?.['required']">
+          Category is required
+        </div>
+        </div>
+
+         </div>
+         <div *ngIf="isCreated" class="mb-3 alert alert-success">
+             Expense added Successfully !
+         </div>
+         <button class="btn btn-secondary" type="reset">Clear</button>&nbsp;&nbsp;
+         <button class="btn btn-dark" type="submit">Submit</button>
+    </form>
+</div>
